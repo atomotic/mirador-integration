@@ -1,28 +1,44 @@
-## Integrating Mirador
+bump deps 
+```
+ncu -u
+Upgrading /private/tmp/mirador-integration/package.json
+[====================] 9/9 100%
 
-This repository is designed to show integrating Mirador 3 with modern frontend build systems.
+ css-loader                ^3.6.0  →   ^5.0.1     
+ mirador              ^3.0.0-rc.4  →   ^3.0.0     
+ mirador-image-tools       ^0.8.0  →  ^0.10.0     
+ react                   ^16.13.1  →  ^17.0.1     
+ react-dom               ^16.13.1  →  ^17.0.1     
+ style-loader              ^1.2.1  →   ^2.0.0     
+ webpack                  ^4.43.0  →  ^5.10.0     
+ webpack-cli              ^3.3.12  →   ^4.2.0
+ ```
 
-### Dependencies
+ ```
+ npm install
+ ```
 
-You will likely need to have at least the following dependencies available in your `package.json`.
+ install esbuild
 
- - `mirador`
- - `react`
- - `react-dom`
- - `mirador-image-tools` - A plugin just to test plugin integration
-
-### Webpack
-
-See `./webpack` for a basic webpack setup for Mirador 3 + a plugin.
-
-```sh
-npm run webpack
+ ```
+ npm install esbuild
 ```
 
-### Parcel
+build
 
-See `./parcel`, but essentially it is just an html file referencing the JavaScript.
-
-```sh
-npm run parcel
 ```
+time ./node_modules/.bin/esbuild src/index.js \
+    --bundle \
+    --define:process.env.NODE_ENV=\"production\" \
+    --outfile=esbuild/mirador.js \
+    --minify \
+    --external:'domain'
+```
+
+!!!
+```
+1.10s user 0.28s system 261% cpu 0.528 total
+```
+
+
+open esbuild/index.html
