@@ -1,3 +1,6 @@
+## build mirador3 with [esbuild](https://github.com/evanw/esbuild)
+
+
 bump deps 
 ```
 ncu -u
