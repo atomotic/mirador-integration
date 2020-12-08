@@ -41,4 +41,4 @@ time ./node_modules/.bin/esbuild src/index.js \
 ```
 
 
-open esbuild/index.html
+open [esbuild/index.html](http://tilde.club/~atomotic/m3/)
